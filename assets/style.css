@@ -176,10 +176,24 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
 }
 .statband-overlay{position:absolute;inset:0;background:rgba(6,8,11,0.72);}
 .statband-inner{position:relative;z-index:1;padding:110px 0;}
-.statband-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-.statband-item{border-left:1px solid var(--line);padding-left:20px;}
-.statband-num{font-family:var(--font-mono);font-size:32px;font-weight:600;color:var(--text);}
-.statband-label{font-size:13px;color:var(--text-dim);margin-top:8px;}
+
+/* overlapping stat photo cards — each card drifts at its own scroll speed
+   so they slide over/under each other, turion-style */
+.statcard-stack{position:relative;height:460px;margin-top:64px;}
+.statcard{
+  position:absolute;top:0;width:210px;height:260px;
+  border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 30px 50px rgba(0,0,0,0.5);will-change:transform;
+}
+.statcard-img{position:absolute;inset:0;background-size:cover;background-position:center;}
+.statcard-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,8,11,0.05) 40%,rgba(6,8,11,0.88) 100%);}
+.statcard-content{position:absolute;left:0;right:0;bottom:0;padding:18px 20px 20px;}
+.statcard-num{font-family:var(--font-mono);font-size:30px;font-weight:600;color:var(--text);line-height:1;}
+.statcard-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;max-width:170px;}
+@media (max-width:900px){
+  .statcard-stack{height:auto;display:flex;flex-direction:column;gap:16px;}
+  .statcard{position:static;width:100%;height:150px;transform:none!important;}
+}
 
 /* ops / telemetry panel */
 .ops{position:relative;overflow:hidden;padding:0;}
@@ -328,7 +342,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--text-dim
   .reveal, .reveal-stagger > *,
   .hero-bg, .hero-bg-img, .banner-bg, .banner-bg-img,
   .statband-bg, .statband-bg-img, .ops-bg, .ops-bg-img, .quote-bg, .quote-bg-img,
-  .soft-bg, .soft-bg-img, .float-wrap, .float-img{
+  .soft-bg, .soft-bg-img, .float-wrap, .float-img, .statcard{
     opacity:1!important;transform:none!important;animation:none!important;transition:none!important;
   }
 }
