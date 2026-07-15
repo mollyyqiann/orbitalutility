@@ -106,6 +106,9 @@ h1 .accent{color:var(--accent);}
 
 /* soft background photo section — used for text-heavy sections that still want a photo backdrop */
 .soft-bg-section{position:relative;overflow:hidden;}
+/* sticky pinning breaks inside an overflow:hidden ancestor — pinned
+   soft-bg sections clip via .pin-panel instead */
+.pin-section.soft-bg-section{overflow:visible;}
 .soft-bg{position:absolute;inset:-18% 0;will-change:transform;}
 .soft-bg-img{
   position:absolute;inset:-10%;
@@ -125,6 +128,10 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
 /* card grid — mission areas / core outputs, 3 or 4 col */
 .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
 .mission-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+/* floating variant — separated cards that can move independently while a
+   pinned section animates them, instead of sharing one lined background */
+.mission-grid.floating{gap:24px;background:none;border:none;}
+.mission-grid.floating .mission-card{border:1px solid var(--line);border-radius:10px;will-change:transform;}
 .mission-card{background:var(--bg-2);padding:44px 36px;}
 .mission-index{font-family:var(--font-mono);font-size:12px;color:var(--accent);margin-bottom:24px;}
 .mission-card h3{font-family:var(--font-display);font-size:21px;font-weight:700;margin-bottom:14px;}
@@ -146,16 +153,21 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
 .product-card h3{font-family:var(--font-display);font-size:18px;margin-bottom:8px;}
 .product-card p{font-size:14px;color:var(--text-dim);}
 
-/* stat band — full bleed, used for "why it matters" / proof style content.
-   the whole panel (background + heading + cards) pins via position:sticky
-   while the section provides extra scroll height; script.js maps that
-   scroll progress onto the cards, sliding them from staggered offsets into
-   one aligned row, which then holds until the section unpins */
-.statband{position:relative;padding:0;height:260vh;}
-.statband-pin{
+/* pinned sections — the .pin-panel sticks for the section's extra scroll
+   height while script.js eases each [data-align-offset] child up from that
+   many px below its resting spot, finishing at its data-align-arrive
+   fraction of the pinned scroll; the settled layout then holds until the
+   section unpins */
+.pin-section{position:relative;padding:0;height:220vh;}
+.pin-section.pin-short{height:160vh;}
+.pin-panel{
   position:sticky;top:0;height:100vh;overflow:hidden;
   display:flex;align-items:center;
 }
+.pin-content{position:relative;z-index:1;width:100%;}
+
+/* stat band — full bleed pinned band with photo background */
+.statband{height:260vh;}
 .statband-bg-img{
   position:absolute;inset:-10%;
   background-size:cover;background-position:center 55%;background-repeat:no-repeat;
@@ -163,7 +175,6 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
   will-change:transform;
 }
 .statband-overlay{position:absolute;inset:0;background:rgba(6,8,11,0.72);}
-.statband-content{position:relative;z-index:1;width:100%;}
 
 /* stat photo cards — side by side, staggered until scroll aligns them */
 .statcard-row{display:flex;gap:24px;margin-top:72px;}
@@ -178,10 +189,11 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
 .statcard-num{font-family:var(--font-mono);font-size:30px;font-weight:600;color:var(--text);line-height:1;}
 .statcard-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;max-width:170px;}
 @media (max-width:900px){
-  .statband{height:auto;}
-  .statband-pin{position:relative;height:auto;display:block;padding:70px 0;}
+  .pin-section, .pin-section.pin-short, .statband{height:auto;}
+  .pin-panel{position:relative;height:auto;display:block;padding:70px 0;}
+  .pin-panel [data-align-offset]{transform:none!important;}
   .statcard-row{flex-direction:column;gap:16px;margin-top:48px;}
-  .statcard{flex:none;height:150px;transform:none!important;}
+  .statcard{flex:none;height:150px;}
 }
 
 /* ops / telemetry panel */
@@ -344,7 +356,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--text-dim
   .reveal, .reveal-stagger > *,
   .hero-bg, .hero-bg-img, .banner-bg, .banner-bg-img,
   .statband-bg-img, .ops-bg, .ops-bg-img, .quote-bg, .quote-bg-img,
-  .soft-bg, .soft-bg-img, .statcard{
+  .soft-bg, .soft-bg-img, .statcard, .pin-panel [data-align-offset]{
     opacity:1!important;transform:none!important;animation:none!important;transition:none!important;
   }
+  /* no scroll animation to drive, so drop the extra pinned scroll length */
+  .pin-section, .pin-section.pin-short, .statband{height:auto;}
+  .pin-panel{position:relative;height:auto;padding:120px 0;}
 }

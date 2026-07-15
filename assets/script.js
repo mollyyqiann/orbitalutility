@@ -35,34 +35,38 @@
     updateParallax();
   }
 
-  // stat band card alignment — while .statband-pin is stuck, each card rises
-  // from data-align-offset px below its resting spot, finishing at its own
-  // data-align-arrive fraction of the pinned scroll. Different distances and
-  // arrival points = visibly different speeds; once every card has settled
-  // the aligned row holds until the section releases. Mobile CSS forces
-  // transform:none, so this is desktop-only.
-  var statband = document.querySelector('.statband');
-  if(statband && !reduced){
-    var alignCards = statband.querySelectorAll('.statcard[data-align-offset]');
-    var stackTicking = false;
-    function updateStatband(){
-      var scrollable = statband.offsetHeight - window.innerHeight;
-      if(scrollable > 0){
-        var p = Math.min(1, Math.max(0, -statband.getBoundingClientRect().top / scrollable));
-        alignCards.forEach(function(c){
+  // pinned sections — while a .pin-section's .pin-panel is stuck, each
+  // [data-align-offset] child rises from that many px below its resting
+  // spot, finishing at its own data-align-arrive fraction of the pinned
+  // scroll. Different distances and arrival points = visibly different
+  // speeds; once everything has settled the layout holds until the section
+  // releases. Mobile CSS forces transform:none, so this is desktop-only.
+  var pinSections = document.querySelectorAll('.pin-section');
+  if(pinSections.length && !reduced){
+    var pinData = Array.prototype.map.call(pinSections, function(sec){
+      return { sec: sec, items: sec.querySelectorAll('[data-align-offset]') };
+    });
+    var pinTicking = false;
+    function updatePinSections(){
+      pinData.forEach(function(d){
+        if(!d.items.length) return;
+        var scrollable = d.sec.offsetHeight - window.innerHeight;
+        if(scrollable <= 0) return;
+        var p = Math.min(1, Math.max(0, -d.sec.getBoundingClientRect().top / scrollable));
+        d.items.forEach(function(c){
           var start = parseFloat(c.getAttribute('data-align-offset')) || 0;
           var arrive = parseFloat(c.getAttribute('data-align-arrive')) || 0.55;
           var t = Math.min(1, p / arrive);
           t = 1 - Math.pow(1 - t, 3);
           c.style.transform = 'translateY(' + (start * (1 - t)) + 'px)';
         });
-      }
-      stackTicking = false;
+      });
+      pinTicking = false;
     }
     window.addEventListener('scroll', function(){
-      if(!stackTicking){ requestAnimationFrame(updateStatband); stackTicking = true; }
+      if(!pinTicking){ requestAnimationFrame(updatePinSections); pinTicking = true; }
     }, {passive:true});
-    updateStatband();
+    updatePinSections();
   }
 
   var contactForm = document.getElementById('contact-form');
