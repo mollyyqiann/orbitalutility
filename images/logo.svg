@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 72" role="img" aria-label="Infinite Exploration logo">
+  <defs>
+    <linearGradient id="ieWarm" x1="0%" y1="100%" x2="70%" y2="0%">
+      <stop offset="0%" stop-color="#c8321f"/>
+      <stop offset="55%" stop-color="#e85c25"/>
+      <stop offset="100%" stop-color="#f4a13a"/>
+    </linearGradient>
+    <linearGradient id="ieCool" x1="100%" y1="0%" x2="20%" y2="100%">
+      <stop offset="0%" stop-color="#5cb9e8"/>
+      <stop offset="60%" stop-color="#2b86bd"/>
+      <stop offset="100%" stop-color="#14547f"/>
+    </linearGradient>
+  </defs>
+  <!-- left (warm) loop of the infinity mark -->
+  <path d="M64,36 C56,16 22,12 14,30 C6,48 22,62 38,56 C50,51.5 58,44 64,36 Z
+           M64,36 C58,42 50,49 40,52.5 C28,56.5 16,47 21,34 C26,21 52,22 64,36 Z"
+        fill="url(#ieWarm)" fill-rule="evenodd"/>
+  <!-- right (cool) loop of the infinity mark -->
+  <path d="M64,36 C72,56 106,60 114,42 C122,24 106,10 90,16 C78,20.5 70,28 64,36 Z"
+        fill="url(#ieCool)"/>
+  <!-- wave cut along the bottom of the cool loop -->
+  <path d="M66,42 C74,49 84,51 94,48.5 C88,53.5 76,53 69,46.5 Z" fill="#0b2e47" opacity="0.85"/>
+  <!-- snowflake -->
+  <g stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" transform="translate(92,32)">
+    <line x1="0" y1="-10" x2="0" y2="10"/>
+    <line x1="-8.7" y1="-5" x2="8.7" y2="5"/>
+    <line x1="-8.7" y1="5" x2="8.7" y2="-5"/>
+    <line x1="-2.6" y1="-7.5" x2="0" y2="-5"/><line x1="2.6" y1="-7.5" x2="0" y2="-5"/>
+    <line x1="-2.6" y1="7.5" x2="0" y2="5"/><line x1="2.6" y1="7.5" x2="0" y2="5"/>
+    <line x1="-8" y1="-1.5" x2="-4.3" y2="-2.5"/><line x1="-6.3" y1="-6.5" x2="-4.3" y2="-2.5"/>
+    <line x1="8" y1="1.5" x2="4.3" y2="2.5"/><line x1="6.3" y1="6.5" x2="4.3" y2="2.5"/>
+    <line x1="-8" y1="1.5" x2="-4.3" y2="2.5"/><line x1="-6.3" y1="6.5" x2="-4.3" y2="2.5"/>
+    <line x1="8" y1="-1.5" x2="4.3" y2="-2.5"/><line x1="6.3" y1="-6.5" x2="4.3" y2="-2.5"/>
+  </g>
+</svg>

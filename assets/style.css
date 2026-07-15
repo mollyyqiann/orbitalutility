@@ -5,8 +5,8 @@
   --line:#1c2733;
   --text:#eef3f8;
   --text-dim:#7c8794;
-  --accent:#3d8bfd;
-  --accent-2:#ffcf5c;
+  --accent:#3ba2dc;   /* logo blue (cool loop) */
+  --accent-2:#ee7a2f; /* logo orange (warm loop) */
   --font-display:'Funnel Display',-apple-system,sans-serif;
   --font-body:'Funnel Sans',-apple-system,sans-serif;
   --font-mono:'Fragment Mono',monospace;
@@ -30,8 +30,9 @@ nav{
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;}
-.logo{font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:0.01em;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:0.01em;}
 .logo span{color:var(--accent);}
+.logo-mark{height:26px;width:auto;display:block;}
 .navlinks{display:flex;gap:32px;font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.04em;}
 .navlinks a:hover{color:var(--text);}
 .navlinks a.active{color:var(--text);}
@@ -307,7 +308,7 @@ h2{font-family:var(--font-display);font-size:clamp(28px,3.6vw,42px);font-weight:
 .contact-info-value{font-size:15px;}
 .form-note{font-size:12px;color:var(--text-dim);margin-top:16px;}
 .form-success{
-  display:none;background:rgba(61,139,253,0.1);border:1px solid var(--accent);border-radius:6px;
+  display:none;background:rgba(59,162,220,0.1);border:1px solid var(--accent);border-radius:6px;
   padding:16px;font-size:14px;margin-top:16px;
 }
 .form-success.visible{display:block;}
