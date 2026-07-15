@@ -67,6 +67,13 @@ Preview-tool server config, serves the repo root on port 4173.
 
 These are explicitly unresolved in the brief and stubbed out rather than fabricated:
 - **Contact form** (`contact.html`) — static only, no backend wired up; needs Formspree/Netlify Forms or similar before launch.
-- **Team members** — no names/titles/bios/headshots in the brief; About page has no fabricated team section.
-- **News items** — placeholder dates/entries on Home and News pages; no real announcements existed to use.
-- **Partner logos, office address, legal/company details** — marked TBD/placeholder in `contact.html` and elsewhere.
+- **Technical Advisors** — removed from the About page team section for now, pending real names/bios.
+- **News items** — Home and News pages show a "Coming soon" placeholder (real entries pending); real content to follow.
+- **Partner logos, office address, legal/company details** — marked TBD/placeholder in `contact.html` and `about.html`; partner logos pending confirmation from Star Path.
+
+## Real content added from client feedback (Website comments.docx)
+
+- **Team** (`about.html`) — real names/photos/bios for Ted Hai (Founder & CEO) and Yun Wang, Ph.D (Co-Founder & CTO), in `images/team/`.
+- **Outputs** — Home and Technology pages now describe 3 outputs (Power, Hydrogen, Oxygen), not 4; Infinite Exploration doesn't produce water as a sellable output.
+- **Hardware section** (`technology.html#hardware`) — 5 core hardware pieces (Solar Arrays, Electrolyzer, H&#8322;/O&#8322; Storage, Fuel Cell, Power & Refueling Module) replacing the earlier 3-item Solar/Relay/Rover set; new renders in `images/d6-product-*.png` generated via `designs/scripts/generate_images_hardware.py`.
+- **Stat cards** (`index.html`, "Why Lunar Energy Infrastructure") — swapped in client-provided imagery (`images/stats/`) and fixed a parallax bug in `assets/script.js` where each scroll tick compounded on the previous frame's transform instead of the element's static position, causing cards to drift far out of alignment on a long scroll.

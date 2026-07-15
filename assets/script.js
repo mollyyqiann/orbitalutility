@@ -12,14 +12,20 @@
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ io.observe(el); });
 
   if(!reduced){
-    var parallaxEls = document.querySelectorAll('[data-parallax]');
+    var parallaxData = Array.prototype.map.call(document.querySelectorAll('[data-parallax]'), function(el){
+      return { el: el, speed: parseFloat(el.getAttribute('data-parallax')) || 0.1, lastOffset: 0 };
+    });
     var ticking = false;
     function updateParallax(){
-      parallaxEls.forEach(function(el){
-        var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
-        var rect = el.getBoundingClientRect();
-        var offset = (rect.top - window.innerHeight/2) * speed;
-        el.style.transform = 'translateY(' + offset + 'px)';
+      parallaxData.forEach(function(d){
+        // rect.top already includes last frame's transform, so subtract it back
+        // out first — otherwise each tick compounds on the previous offset and
+        // the element drifts far past its intended position over a long scroll.
+        var rect = d.el.getBoundingClientRect();
+        var staticTop = rect.top - d.lastOffset;
+        var offset = (staticTop - window.innerHeight/2) * d.speed;
+        d.el.style.transform = 'translateY(' + offset + 'px)';
+        d.lastOffset = offset;
       });
       ticking = false;
     }
