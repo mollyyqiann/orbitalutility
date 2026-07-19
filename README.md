@@ -4,11 +4,11 @@ Design exploration and build-out for the Orbital Utility (formerly Infinite Expl
 
 ## Current deliverable: repo root (live on GitHub Pages)
 
-This repo is `mollyyqiann.github.io`, so whatever sits at the repo root is served at `https://mollyyqiann.github.io/`. The multi-page site lives at root, one HTML file per page from the brief's "Planned Site Structure":
+This repo (`mollyyqiann/orbitalutility`) is published via GitHub Pages with the custom domain `orbitalutility.com` (see `CNAME`), so whatever sits at the repo root is served at `https://orbitalutility.com/`. The multi-page site lives at root, one HTML file per page from the brief's "Planned Site Structure":
 
 | Page | URL |
 |---|---|
-| Home | `https://mollyyqiann.github.io/` (`index.html`) |
+| Home | `https://orbitalutility.com/` (`index.html`) |
 | Technology / Platform | `technology.html` |
 | About | `about.html` |
 | News | `news.html` |
