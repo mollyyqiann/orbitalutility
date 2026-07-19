@@ -1,6 +1,6 @@
-# Infinite Exploration — Website Exploration
+# Orbital Utility — Website Exploration
 
-Design exploration and build-out for the Infinite Exploration marketing site (AI-coordinated lunar power/hydrogen/oxygen/water infrastructure). Source brief: `Infinite_Exploration_Website_Brief_1.docx`.
+Design exploration and build-out for the Orbital Utility (formerly Infinite Exploration) marketing site (AI-coordinated lunar power/hydrogen/oxygen/water infrastructure). Source brief: `Infinite_Exploration_Website_Brief_1.docx`.
 
 ## Current deliverable: repo root (live on GitHub Pages)
 
@@ -74,6 +74,6 @@ These are explicitly unresolved in the brief and stubbed out rather than fabrica
 ## Real content added from client feedback (Website comments.docx)
 
 - **Team** (`about.html`) — real names/photos/bios for Ted Hai (Founder & CEO) and Yun Wang, Ph.D (Co-Founder & CTO), in `images/team/`.
-- **Outputs** — Home and Technology pages now describe 3 outputs (Power, Hydrogen, Oxygen), not 4; Infinite Exploration doesn't produce water as a sellable output.
+- **Outputs** — Home and Technology pages now describe 3 outputs (Power, Hydrogen, Oxygen), not 4; the company doesn't produce water as a sellable output.
 - **Hardware section** (`technology.html#hardware`) — 5 core hardware pieces (Solar Arrays, Electrolyzer, H&#8322;/O&#8322; Storage, Fuel Cell, Power & Refueling Module) replacing the earlier 3-item Solar/Relay/Rover set; new renders in `images/d6-product-*.png` generated via `designs/scripts/generate_images_hardware.py`.
 - **Stat cards** (`index.html`, "Why Lunar Energy Infrastructure") — swapped in client-provided imagery (`images/stats/`) and fixed a parallax bug in `assets/script.js` where each scroll tick compounded on the previous frame's transform instead of the element's static position, causing cards to drift far out of alignment on a long scroll.
