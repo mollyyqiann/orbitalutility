@@ -1,11 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 104" role="img" aria-label="Orbital Utility logo">
-  <!-- white version of the Orbital Utility mark for dark backgrounds:
-       broken ring with a vertical orbit axis (dot, cone, core, cone) -->
-  <g fill="#ffffff">
-    <!-- ring, two arcs with gaps at top and bottom -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Orbital Utility">
+  <rect width="120" height="120" rx="24" fill="#06080b"/>
+  <g fill="#ffffff" transform="translate(10,8)">
     <path d="M60.5,19.7 A34,34 0 0 1 60.5,84.3 L57.7,75.9 A25,25 0 0 0 57.7,28.1 Z"/>
     <path d="M39.5,19.7 A34,34 0 0 0 39.5,84.3 L42.3,75.9 A25,25 0 0 1 42.3,28.1 Z"/>
-    <!-- orbit axis, top to bottom -->
     <circle cx="50" cy="9.5" r="6"/>
     <path d="M47.2,20.5 L52.8,20.5 L50.6,35.5 L49.4,35.5 Z"/>
     <circle cx="50" cy="52" r="10.5"/>

@@ -69,7 +69,7 @@ These are explicitly unresolved in the brief and stubbed out rather than fabrica
 - **Contact form** (`contact.html`) — static only, no backend wired up; needs Formspree/Netlify Forms or similar before launch.
 - **Technical Advisors** — removed from the About page team section for now, pending real names/bios.
 - **News items** — Home and News pages show a "Coming soon" placeholder (real entries pending); real content to follow.
-- **Partner logos, office address, legal/company details** — marked TBD/placeholder in `contact.html` and `about.html`; partner logos pending confirmation from Star Path.
+- **Partner logos, legal/company details** — marked TBD/placeholder in `about.html`; partner logos pending confirmation from Star Path. (Contact info is now real: info@orbitalutility.com, Irvine CA, linkedin.com/company/orbital-utility.)
 
 ## Real content added from client feedback (Website comments.docx)
 
