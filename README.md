@@ -66,7 +66,7 @@ Preview-tool server config, serves the repo root on port 4173.
 ## Open items (from the brief, currently placeholders in the root-level pages)
 
 These are explicitly unresolved in the brief and stubbed out rather than fabricated:
-- **Contact form** (`contact.html`) — static only, no backend wired up; needs Formspree/Netlify Forms or similar before launch.
+- **Contact form** (`contact.html`) — temporarily removed (it was static with no backend); restore once Formspree/Netlify Forms or similar is wired up. Direct contact channels are shown instead.
 - **Technical Advisors** — removed from the About page team section for now, pending real names/bios.
 - **News items** — Home and News pages show a "Coming soon" placeholder (real entries pending); real content to follow.
 - **Partner logos, legal/company details** — marked TBD/placeholder in `about.html`; partner logos pending confirmation from Star Path. (Contact info is now real: info@orbitalutility.com, Irvine CA, linkedin.com/company/orbital-utility.)
